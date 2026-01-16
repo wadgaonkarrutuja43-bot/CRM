@@ -1,0 +1,89 @@
+/* --- 1. DEFAULT VARIABLES (Single Fixed Theme for App) --- */
+:root {
+  --bg-main: #f8fafc;      /* Clean Light Grey for Dashboard Background */
+  --bg-card: #ffffff;      /* Pure White for Cards */
+  --text-main: #0f172a;    /* Dark Navy for Text */
+  --text-muted: #64748b;
+  --accent: #0d6efd;
+  --border: #e2e8f0;
+}
+
+/* --- 2. GLOBAL RESET --- */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  /* DEFAULT: Use the App's light theme colors */
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- 3. LANDING PAGE PROTECTION (Your Work) --- */
+/* This class is added by App.js when view === 'landing' */
+.landing-view {
+  background-color: #000000 !important; /* Force Black Background */
+  color: #ffffff !important;             /* Force White Text */
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* --- 4. ANIMATION LOGIC --- */
+.pixel-blast-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* SHOW animation ONLY on the Landing Page */
+.landing-view .pixel-blast-container {
+  display: block !important;
+  z-index: 0;
+}
+
+/* HIDE animation completely on all other pages */
+.dashboard-view .pixel-blast-container,
+.leads-view .pixel-blast-container,
+.history-view .pixel-blast-container,
+.profile-view .pixel-blast-container,
+.settings-view .pixel-blast-container {
+  display: none !important;
+}
+
+/* --- 5. COMPONENT STYLES (For Dashboard/Internal Pages) --- */
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+}
+
+/* Ensure inputs are readable in the light theme */
+input, select, textarea {
+  background-color: var(--bg-card) !important;
+  color: var(--text-main) !important;
+  border: 1px solid var(--border) !important;
+}
+
+/* Utility to ensure text is legible */
+.text-muted {
+  color: var(--text-muted) !important;
+}
+/*const faqData = [
+    { question: "How do I add a new lead?", answer: "Navigate to the 'Leads' page from the dashboard. Click the '+ New Lead' button in the top right corner. Fill in the lead's name, email, and status, then click 'Save'." },
+    { question: "Can I export my data?", answer: "Yes! Go to the 'Data' tab in Settings (this page). Under 'Export Your Data', click the 'Download CSV' button to get a full report of your leads." },
+    { question: "How do I reset my password?", answer: "Go to the 'Security' tab in Settings. Enter your current password, then type your new password twice. Click 'Update Security' to save changes." },
+    { question: "Is my data secure?", answer: "Absolutely. We use industry-standard encryption for all data storage. You can also enable Two-Factor Authentication in the Security tab for extra protection."}
+  ];*/
