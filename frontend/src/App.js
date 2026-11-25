@@ -35,7 +35,7 @@ function App() {
       try {
         const parsedUser = JSON.parse(savedUser);
         setUser(parsedUser);
-        setView('dashboard'); 
+        setView('landing'); 
       } catch (error) {
         localStorage.removeItem('crm_user');
       }
